@@ -41,5 +41,5 @@ public class UiUtils {
         return (int) (px / density + 0.5);
     }
 
-    
+
 }
