@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">P2PInvest1020</string>
     <string name="action_settings">Settings</string>
+
+    <string-array name="aaa">
+
+    </string-array>
 </resources>
