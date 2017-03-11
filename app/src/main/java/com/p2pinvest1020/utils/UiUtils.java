@@ -3,6 +3,8 @@ package com.p2pinvest1020.utils;
 import android.content.Context;
 import android.view.View;
 
+import com.p2pinvest1020.command.MyApplication;
+
 /**
  * Created by Administrator on 2017/3/11.
  *

@@ -30,7 +30,6 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash2);
         ButterKnife.bind(this);
 
-        Log.i("aaa", "onCreate: "+1/0);
 
         AppManager.getInstance().addActivity(this);
 
@@ -97,7 +96,7 @@ public class SplashActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        AppManager.getInstance().removeActivity(this);
-        AppManager.getInstance().removeCurrentActivity();
+        //AppManager.getInstance().removeActivity(this);
+        //AppManager.getInstance().removeCurrentActivity();
     }
 }

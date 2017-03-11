@@ -1,4 +1,4 @@
-package com.p2pinvest1020.utils;
+package com.p2pinvest1020.command;
 
 /**
  * Created by Administrator on 2017/3/11.

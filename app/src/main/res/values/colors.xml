@@ -3,4 +3,28 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="home_back_unselected">#676767</color>
+    <color name="home_back_selected">#3883D1</color>
+    <color name="home_back_selected01">#E24242</color>
+
+    <color name="title_back">#2F83C7</color>
+
+
+    <color name="product_detail_common">#666666</color>
+
+    <color name="text_progress">#18b4ed</color>
+
+    <color name="title_text">#26B8EE</color>
+
+    <color name="divider_line">#e1e1e1</color>
+
+    <color name="product_red_common">#e84768</color>
+
+    <color name="round_red_common">#DC143C</color>
+
+    <color name="my_title_bg">#28baed</color>
+    <color name="more_text">#5A6E9E</color>
+
+    <color name="white">#ffffff</color>
 </resources>

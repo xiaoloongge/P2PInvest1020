@@ -1,14 +1,175 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:atguigu="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <include layout="@layout/base_head"></include>
 
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:textSize="22sp"
-        android:textColor="@android:color/black"
-        android:text="小龙哥为什么就这么帅！！！"/>
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp">
+
+                <!--<com.youth.banner.Banner-->
+                    <!--android:id="@+id/banner"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent" />-->
+
+                <!--<android.support.v4.view.ViewPager
+                    android:id="@+id/vp_home"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                </android.support.v4.view.ViewPager>
+
+                <com.viewpagerindicator.CirclePageIndicator
+                    android:id="@+id/cp_home_indicator"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|bottom"
+                    android:layout_marginBottom="5dp"
+                    />-->
+
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/tv_home_product"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="20dp"
+                android:drawablePadding="4dp"
+                android:drawableRight="@drawable/recommend"
+                android:text="硅谷堂180计划第一期"
+                android:textColor="@color/product_detail_common"
+                android:textSize="30sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/home_attribute_bg"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:textColor="@color/home_back_unselected"
+                    android:text="本息保障" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/home_attribute_bg"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:textColor="@color/home_back_unselected"
+                    android:text="每日计息" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/home_attribute_bg"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:textColor="@color/home_back_unselected"
+                    android:text="高额收益" />
+
+
+            </LinearLayout>
+
+
+            <!--<com.atguigu.p2pinvest0828.ui.RoundProgress-->
+            <!--android:id="@+id/roundPro_home"-->
+            <!--android:layout_width="120dp"-->
+            <!--android:layout_height="120dp"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--atguigu:roundColor="@color/more_text"-->
+            <!--atguigu:roundProgressColor="@color/round_red_common"-->
+            <!--atguigu:textColor="@color/title_back"-->
+            <!--atguigu:textSize="20dp"-->
+            <!--atguigu:roundWith="10dp"-->
+            <!--atguigu:max="100"-->
+            <!--atguigu:progress="70"-->
+            <!--/>-->
+            <!--<com.p2pinvest002.ui.MyProgressBar
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="10dp">
+
+            </com.p2pinvest002.ui.MyProgressBar>-->
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="预期年利率："
+                    android:textColor="@color/product_detail_common"
+                    android:textSize="20sp"
+
+                    />
+
+                <TextView
+                    android:id="@+id/tv_home_yearrate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="10% + 2%"
+                    android:textColor="@color/product_detail_common"
+                    android:textSize="20sp"
+
+                    />
+
+            </LinearLayout>
+
+
+            <Button
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/home"
+                android:text="立即加入"
+                android:textSize="30sp"
+                android:textColor="@color/white"
+                />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="风险保障金由硅谷银行监管"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/home_back_unselected"
+                android:drawableLeft="@drawable/guarantee_icon"
+                />
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
 </LinearLayout>
