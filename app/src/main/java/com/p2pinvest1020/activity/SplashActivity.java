@@ -5,12 +5,14 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.p2pinvest1020.R;
+import com.p2pinvest1020.utils.AppManager;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -28,6 +30,9 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash2);
         ButterKnife.bind(this);
 
+        Log.i("aaa", "onCreate: "+1/0);
+
+        AppManager.getInstance().addActivity(this);
 
         initData();
     }
@@ -87,5 +92,12 @@ public class SplashActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         return "";
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        AppManager.getInstance().removeActivity(this);
+        AppManager.getInstance().removeCurrentActivity();
     }
 }
