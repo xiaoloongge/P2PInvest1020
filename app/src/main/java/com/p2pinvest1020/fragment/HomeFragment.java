@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.p2pinvest1020.R;
+import com.p2pinvest1020.utils.UiUtils;
 
 /**
  * Created by Administrator on 2017/3/10.
@@ -19,8 +20,8 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View view = View.inflate(getActivity(), R.layout.fragment_home,null);
-        
+        //View view = UiUtils.getView(R.layout.fragment_home);
+        View view = View.inflate(getActivity(),R.layout.fragment_home,null);
         return view;
     }
 }

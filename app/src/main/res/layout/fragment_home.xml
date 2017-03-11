@@ -5,4 +5,10 @@
 
     <include layout="@layout/base_head"></include>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:textSize="22sp"
+        android:textColor="@android:color/black"
+        android:text="小龙哥为什么就这么帅！！！"/>
 </LinearLayout>
