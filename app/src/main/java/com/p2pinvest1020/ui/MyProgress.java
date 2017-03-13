@@ -80,7 +80,13 @@ public class MyProgress extends View {
         paint.setAntiAlias(true); //抗锯齿 看起来会圆润一些
 
     }
-
+/**
+* 注意 构造器只会调用一次 onDraw方法会调用多闪
+ * 在构造器里初始化的数据 一定要是通用的（不变的）
+ * 否则会在第二次onDraw的时候进行覆盖
+*
+*
+* */
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);

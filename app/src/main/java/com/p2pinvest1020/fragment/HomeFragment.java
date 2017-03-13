@@ -57,6 +57,11 @@ public class HomeFragment extends BaseFragment {
         return  R.layout.fragment_home;
     }
 
+    @Override
+    public String getChildUrl() {
+        return AppNetConfig.INDEX;
+    }
+
     public void initListener() {
         //初始化title
         baseTitle.setText("首页");
@@ -64,34 +69,14 @@ public class HomeFragment extends BaseFragment {
         baseSetting.setVisibility(View.INVISIBLE);
     }
 
-    public void initData() {
-
-        /*
-        * 二次封装
-        * 为什么要二次封装
-        *
-        * 第一  调用的方便
-        * 第二  修改和维护方便
-        * */
-        LoadNet.getDataPost(AppNetConfig.INDEX, new LoadNetHttp() {
-            @Override
-            public void success(String context) {
-
-                HomeBean homeBean = JSON.parseObject(context, HomeBean.class);
-
-                //Log.i("http", "success: "+homeBean.getImageArr().size());
-                tvHomeYearrate.setText(homeBean.getProInfo().getYearRate() + "%");
-                tvHomeProduct.setText(homeBean.getProInfo().getName());
-                //注意：展示UI一定要判断是不是主线程
-                initProgress(homeBean.getProInfo());
-                initBanner(homeBean);
-            }
-
-            @Override
-            public void failure(String error) {
-                Log.i("http", "failure: " + error);
-            }
-        });
+    public void initData(String json) {
+        HomeBean homeBean = JSON.parseObject(json, HomeBean.class);
+        //Log.i("http", "success: "+homeBean.getImageArr().size());
+        tvHomeYearrate.setText(homeBean.getProInfo().getYearRate() + "%");
+        tvHomeProduct.setText(homeBean.getProInfo().getName());
+        //注意：展示UI一定要判断是不是主线程
+        initProgress(homeBean.getProInfo());
+        initBanner(homeBean);
     }
 
     private void initProgress(final HomeBean.ProInfoBean proInfo) {

@@ -11,13 +11,25 @@ import android.widget.TextView;
 /**
  * Created by Administrator on 2017/3/10.
  */
-public class InvestFragment extends Fragment {
+public class InvestFragment extends BaseFragment {
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        TextView textView = new TextView(getActivity());
-        textView.setText("Invest");
-        return textView;
+    protected void initListener() {
+
+    }
+
+    @Override
+    protected void initData(String json) {
+
+    }
+
+    @Override
+    public int getLayoutid() {
+        return 0;
+    }
+
+    @Override
+    public String getChildUrl() {
+        return null;
     }
 }

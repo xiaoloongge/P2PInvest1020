@@ -1,6 +1,7 @@
 package com.p2pinvest1020.utils;
 
 import android.content.Context;
+import android.os.Handler;
 import android.view.View;
 
 import com.p2pinvest1020.command.MyApplication;
@@ -44,4 +45,13 @@ public class UiUtils {
     }
 
 
+    public static void runOnUiThread(Runnable runnable) {
+        //比较pid来判断是不是在主线程
+        if (MyApplication.getThreadid()==android.os.Process.myPid()){
+            runnable.run();
+        }else{
+            //给handler发送一个runnable
+            MyApplication.getHandler().post(runnable);
+        }
+    }
 }
