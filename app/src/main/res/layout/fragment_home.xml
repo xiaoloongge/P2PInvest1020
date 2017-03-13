@@ -7,7 +7,7 @@
 
     <include layout="@layout/base_head"></include>
 
-    <ScrollView
+    <com.p2pinvest1020.ui.MyScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -170,6 +170,6 @@
         </LinearLayout>
 
 
-    </ScrollView>
+    </com.p2pinvest1020.ui.MyScrollView>
 
 </LinearLayout>
