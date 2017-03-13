@@ -107,11 +107,11 @@ public class MyProgress extends View {
                 measuredWidth - roundWidth / 2, measuredHeight - roundWidth / 2);
         paint.setColor(sweepColor);
         //第二个参数是起始角 第三个参数多少度
-        canvas.drawArc(rectf, 0, sweepArc, false, paint);
+        canvas.drawArc(rectf, 0, sweepArc * 360 / 100 , false, paint);
 
 
         //画文字
-        String text = sweepArc * 100 / 360 + "%";
+        String text = sweepArc + "%";
         Rect rect = new Rect();
         //第一个参数是文本 第二个到第三个参数是文字的截取的长度，第四个参数是存放测量结果的容器
         paint.setColor(Color.BLUE);

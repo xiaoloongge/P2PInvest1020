@@ -33,7 +33,7 @@ import butterknife.ButterKnife;
 /**
  * Created by Administrator on 2017/3/10.
  */
-public class HomeFragment extends Fragment {
+public class HomeFragment extends BaseFragment {
 
     @Bind(R.id.base_title)
     TextView baseTitle;
@@ -50,34 +50,21 @@ public class HomeFragment extends Fragment {
     @Bind(R.id.home_progress)
     MyProgress homeProgress;
 
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        //View view = UiUtils.getView(R.layout.fragment_home);
-        View view = View.inflate(getActivity(), R.layout.fragment_home, null);
-        ButterKnife.bind(this, view);
-        return view;
-    }
 
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-
-        //初始化数据
-        initData();
-        //初始化监听
-        initListener();
+    public int getLayoutid() {
+        return  R.layout.fragment_home;
     }
 
-    private void initListener() {
+    public void initListener() {
         //初始化title
         baseTitle.setText("首页");
         baseBack.setVisibility(View.INVISIBLE);
         baseSetting.setVisibility(View.INVISIBLE);
     }
 
-    private void initData() {
+    public void initData() {
 
         /*
         * 二次封装
@@ -113,8 +100,8 @@ public class HomeFragment extends Fragment {
             @Override
             public void run() {
                 int progress = Integer.parseInt(proInfo.getProgress());
-                for (int i = 0; i < progress; i++) {
-                    SystemClock.sleep(120);
+                for (int i = 0; i <= progress; i++) {
+                    SystemClock.sleep(20);
                     homeProgress.setProgress(i);
                 }
             }
