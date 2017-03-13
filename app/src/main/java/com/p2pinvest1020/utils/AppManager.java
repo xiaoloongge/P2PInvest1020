@@ -2,6 +2,8 @@ package com.p2pinvest1020.utils;
 
 import android.app.Activity;
 
+import com.p2pinvest1020.activity.SplashActivity;
+
 import java.util.Stack;
 
 /**
@@ -56,8 +58,7 @@ public class AppManager {
     }
 
     public void removeCurrentActivity(){
-
-        Activity activity = stack.get(stack.size()-1);
+        Activity activity = stack.lastElement();
         activity.finish();
         stack.remove(activity);
     }
@@ -68,4 +69,17 @@ public class AppManager {
         return stack.size();
     }
 
+
+    //从stack删除activity
+    public void remove(Activity activity) {
+        if (activity != null){
+            for (int i = stack.size()-1; i >=0; i--) {
+                Activity currentActivity = stack.get(i);
+                if (currentActivity == activity){
+                    //currentActivity.finish();
+                    stack.remove(currentActivity);
+                }
+            }
+        }
+    }
 }

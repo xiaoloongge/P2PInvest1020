@@ -98,5 +98,6 @@ public class SplashActivity extends AppCompatActivity {
         super.onDestroy();
         //AppManager.getInstance().removeActivity(this);
         //AppManager.getInstance().removeCurrentActivity();
+        AppManager.getInstance().remove(this);
     }
 }
