@@ -2,6 +2,7 @@ package com.p2pinvest1020.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -15,8 +16,10 @@ import com.alibaba.fastjson.JSON;
 import com.p2pinvest1020.R;
 import com.p2pinvest1020.bean.HomeBean;
 import com.p2pinvest1020.command.AppNetConfig;
+import com.p2pinvest1020.ui.MyProgress;
 import com.p2pinvest1020.utils.LoadNet;
 import com.p2pinvest1020.utils.LoadNetHttp;
+import com.p2pinvest1020.utils.ThreadPool;
 import com.squareup.picasso.Picasso;
 import com.youth.banner.Banner;
 import com.youth.banner.loader.ImageLoader;
@@ -44,6 +47,8 @@ public class HomeFragment extends Fragment {
     ImageView baseSetting;
     @Bind(R.id.banner)
     Banner banner;
+    @Bind(R.id.home_progress)
+    MyProgress homeProgress;
 
     @Nullable
     @Override
@@ -88,9 +93,10 @@ public class HomeFragment extends Fragment {
                 HomeBean homeBean = JSON.parseObject(context, HomeBean.class);
 
                 //Log.i("http", "success: "+homeBean.getImageArr().size());
-                tvHomeYearrate.setText(Double.parseDouble(homeBean.getProInfo().getYearRate())/100+"%");
+                tvHomeYearrate.setText(homeBean.getProInfo().getYearRate() + "%");
                 tvHomeProduct.setText(homeBean.getProInfo().getName());
                 //注意：展示UI一定要判断是不是主线程
+                initProgress(homeBean.getProInfo());
                 initBanner(homeBean);
             }
 
@@ -101,13 +107,27 @@ public class HomeFragment extends Fragment {
         });
     }
 
+    private void initProgress(final HomeBean.ProInfoBean proInfo) {
+
+        ThreadPool.getInstance().getGlobalThread().execute(new Runnable() {
+            @Override
+            public void run() {
+                int progress = Integer.parseInt(proInfo.getProgress());
+                for (int i = 0; i < progress; i++) {
+                    SystemClock.sleep(120);
+                    homeProgress.setProgress(i);
+                }
+            }
+        });
+    }
+
     private void initBanner(HomeBean homeBean) {
         //设置图片加载器
         banner.setImageLoader(new GlideImageLoader());
         //转化成url集合
         List<String> urls = new ArrayList<>();
         for (int i = 0; i < homeBean.getImageArr().size(); i++) {
-            urls.add(AppNetConfig.BASE_URL+homeBean.getImageArr().get(i).getIMAURL());
+            urls.add(AppNetConfig.BASE_URL + homeBean.getImageArr().get(i).getIMAURL());
         }
         //设置图片集合
         banner.setImages(urls);

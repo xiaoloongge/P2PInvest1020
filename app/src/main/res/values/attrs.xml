@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="progress">
+        <attr name="roundColor" format="color"></attr>
+        <attr name="sweepColor" format="color"></attr>
+        <attr name="sweepArc" format="integer"></attr>
+    </declare-styleable>
+</resources>

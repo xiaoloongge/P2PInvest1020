@@ -111,12 +111,12 @@
             <!--atguigu:max="100"-->
             <!--atguigu:progress="70"-->
             <!--/>-->
-            <!--<com.p2pinvest002.ui.MyProgressBar
+            <com.p2pinvest1020.ui.MyProgress
                 android:layout_width="120dp"
                 android:layout_height="120dp"
-                android:layout_marginTop="10dp">
-
-            </com.p2pinvest002.ui.MyProgressBar>-->
+                android:id="@+id/home_progress"
+                atguigu:sweepArc="160">
+            </com.p2pinvest1020.ui.MyProgress>
 
             <LinearLayout
                 android:layout_width="wrap_content"
