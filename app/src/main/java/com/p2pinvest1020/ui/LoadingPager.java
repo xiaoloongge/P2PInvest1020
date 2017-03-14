@@ -121,7 +121,12 @@ public abstract class LoadingPager extends FrameLayout {
         *
         * */
         String url = getUrl();
-
+        if (TextUtils.isEmpty(url)){
+            //如果是空的默认为不加载网络
+            resultState = ResultState.SUCCESS; //改变状态
+            loadImage();
+            return;
+        }
         httpClient.post(url,new AsyncHttpResponseHandler(){
             @Override
             public void onSuccess(String content) {
