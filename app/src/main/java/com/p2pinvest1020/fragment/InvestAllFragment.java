@@ -12,6 +12,7 @@ import com.p2pinvest1020.R;
 import com.p2pinvest1020.adapter.InvestAllAdapter;
 import com.p2pinvest1020.adapter.InvestAllAdapter1;
 import com.p2pinvest1020.adapter.InvestAllAdapter2;
+import com.p2pinvest1020.adapter.InvestAllAdapter3;
 import com.p2pinvest1020.bean.InvestAllBean;
 import com.p2pinvest1020.command.AppNetConfig;
 
@@ -41,8 +42,10 @@ public class InvestAllFragment extends BaseFragment {
                 new InvestAllAdapter(investAllBean.getData());*/
         /*InvestAllAdapter1 adapter =
                 new InvestAllAdapter1(investAllBean.getData());*/
-        InvestAllAdapter2 adapter =
-                new InvestAllAdapter2(investAllBean.getData());
+        /*InvestAllAdapter2 adapter =
+                new InvestAllAdapter2(investAllBean.getData());*/
+        InvestAllAdapter3 adapter =
+                new InvestAllAdapter3(investAllBean.getData());
 
         investAllLv.setAdapter(adapter);
     }
