@@ -8,16 +8,31 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.p2pinvest1020.R;
+
 /**
  * Created by Administrator on 2017/3/10.
  */
-public class PropertyFragment extends Fragment {
+public class PropertyFragment extends BaseFragment {
 
-    @Nullable
+
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        TextView textView = new TextView(getActivity());
-        textView.setText("property");
-        return textView;
+    protected void initListener() {
+
+    }
+
+    @Override
+    protected void initData(String json) {
+
+    }
+
+    @Override
+    public int getLayoutid() {
+        return R.layout.fragment_property;
+    }
+
+    @Override
+    public String getChildUrl() {
+        return null;
     }
 }
