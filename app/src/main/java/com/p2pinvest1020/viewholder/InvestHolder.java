@@ -1,5 +1,6 @@
 package com.p2pinvest1020.viewholder;
 
+import android.util.LruCache;
 import android.view.View;
 import android.widget.TextView;
 
