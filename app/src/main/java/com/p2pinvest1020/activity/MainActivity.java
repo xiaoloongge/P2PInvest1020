@@ -23,7 +23,7 @@ import java.util.TimerTask;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     @Bind(R.id.main_rg)
     RadioGroup mainRg;
@@ -32,23 +32,9 @@ public class MainActivity extends AppCompatActivity {
     private MoreFragment moreFragment;
     private PropertyFragment propertyFragment;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // 去掉窗口标题
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        // 隐藏顶部的状态栏
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
 
-        //添加到APPManager
-        AppManager.getInstance().addActivity(this);
-        initData();
-        initListener();
-    }
 
-    private void initListener() {
+    public void initListener() {
 
         mainRg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -114,9 +100,25 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void initData() {
+    public void initData() {
+        //添加到APPManager
+        AppManager.getInstance().addActivity(this);
         //选择默认的fragment
         switchFragment(R.id.rb_main);
+    }
+
+    @Override
+    protected void initTitle() {
+
+    }
+
+    @Override
+    public int getLayoutid() {
+        // 去掉窗口标题
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        // 隐藏顶部的状态栏
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        return R.layout.activity_main;
     }
 
 
