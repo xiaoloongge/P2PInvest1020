@@ -1,5 +1,6 @@
 package com.p2pinvest1020.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -11,7 +12,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.p2pinvest1020.R;
+import com.p2pinvest1020.bean.UserInfo;
 import com.p2pinvest1020.command.AppNetConfig;
 import com.p2pinvest1020.utils.LoadNet;
 import com.p2pinvest1020.utils.LoadNetHttp;
@@ -72,6 +76,20 @@ public class LoginActivity extends BaseActivity {
                     @Override
                     public void success(String context) {
                         Log.i("login", "success: "+context);
+                        JSONObject jsonObject = JSON.parseObject(context);
+                        Boolean success = jsonObject.getBoolean("success");
+                        if (success){
+                            //解析数据
+                            UserInfo userInfo = JSON.parseObject(context, UserInfo.class);
+                            //保存数据到sp
+                            saveUser(userInfo);
+                            //跳转
+                            startActivity(new Intent(LoginActivity.this,MainActivity.class));
+                            //结束当前页面
+                            finish();
+                        }else{
+                            showToast("账号不存在或者密码错误");
+                        }
                     }
 
                     @Override

@@ -5,6 +5,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
@@ -70,6 +71,7 @@ public class SplashActivity extends BaseActivity {
                 }else{
                     //没有登录过进入登录界面
                     startActivity(new Intent(SplashActivity.this,LoginActivity.class));
+                    finish();
                 }
             }
 
@@ -82,7 +84,11 @@ public class SplashActivity extends BaseActivity {
     }
 
     private boolean isLogin() {
-        return false;
+        String name = getUser().getData().getName();
+        if (TextUtils.isEmpty(name)){
+            return false;
+        }
+        return true;
     }
 
     private void setVersion() {
