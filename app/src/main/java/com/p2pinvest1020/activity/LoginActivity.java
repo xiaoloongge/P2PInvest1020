@@ -56,50 +56,62 @@ public class LoginActivity extends BaseActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //校验
-                String phone = loginEtNumber.getText().toString().trim();
-                String pw = loginEtPwd.getText().toString().trim();
-                if (TextUtils.isEmpty(phone)){
-                    showToast("账号不能为空");
-                    return;
-                }
-                if (TextUtils.isEmpty(pw)){
-                    showToast("密码不能为空");
-                    return;
-                }
-
-                Map<String,String> map = new HashMap<String, String>();
-                map.put("phone",phone);
-                map.put("password",pw);
-                //去服务器登录
-                LoadNet.getDataPost(AppNetConfig.LOGIN, map, new LoadNetHttp() {
-                    @Override
-                    public void success(String context) {
-                        Log.i("login", "success: "+context);
-                        JSONObject jsonObject = JSON.parseObject(context);
-                        Boolean success = jsonObject.getBoolean("success");
-                        if (success){
-                            //解析数据
-                            UserInfo userInfo = JSON.parseObject(context, UserInfo.class);
-                            //保存数据到sp
-                            saveUser(userInfo);
-                            //跳转
-                            startActivity(new Intent(LoginActivity.this,MainActivity.class));
-                            //结束当前页面
-                            finish();
-                        }else{
-                            showToast("账号不存在或者密码错误");
-                        }
-                    }
-
-                    @Override
-                    public void failure(String error) {
-                        Log.i("error", "success: "+error);
-                    }
-                });
-
+              login();
             }
         });
+
+        loginRegitsterTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LoginActivity.this,RegesterActivity.class));
+            }
+        });
+    }
+
+    //登录
+    private void login() {
+        //校验
+        String phone = loginEtNumber.getText().toString().trim();
+        String pw = loginEtPwd.getText().toString().trim();
+        if (TextUtils.isEmpty(phone)){
+            showToast("账号不能为空");
+            return;
+        }
+        if (TextUtils.isEmpty(pw)){
+            showToast("密码不能为空");
+            return;
+        }
+
+        Map<String,String> map = new HashMap<String, String>();
+        map.put("phone",phone);
+        map.put("password",pw);
+        //去服务器登录
+        LoadNet.getDataPost(AppNetConfig.LOGIN, map, new LoadNetHttp() {
+            @Override
+            public void success(String context) {
+                Log.i("login", "success: "+context);
+                JSONObject jsonObject = JSON.parseObject(context);
+                Boolean success = jsonObject.getBoolean("success");
+                if (success){
+                    //解析数据
+                    UserInfo userInfo = JSON.parseObject(context, UserInfo.class);
+                    //保存数据到sp
+                    saveUser(userInfo);
+                    //跳转
+                    startActivity(new Intent(LoginActivity.this,MainActivity.class));
+                    //结束当前页面
+                    finish();
+                }else{
+                    showToast("账号不存在或者密码错误");
+                }
+            }
+
+            @Override
+            public void failure(String error) {
+                Log.i("error", "success: "+error);
+            }
+        });
+
     }
 
     @Override
