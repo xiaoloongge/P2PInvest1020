@@ -1,5 +1,6 @@
 package com.p2pinvest1020.fragment;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,8 @@ import android.widget.TextView;
 import com.p2pinvest1020.R;
 import com.p2pinvest1020.ui.randomLayout.StellarMap;
 import com.p2pinvest1020.utils.UiUtils;
+
+import java.util.Random;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -32,6 +35,7 @@ public class InvestRecommendFragment extends BaseFragment {
     private String[] oneDatas = new String[datas.length / 2];
     private String[] twoDatas = new String[datas.length - datas.length / 2];
 
+    private Random random = new Random();
     @Override
     protected void initData(String json) {
 
@@ -98,6 +102,11 @@ public class InvestRecommendFragment extends BaseFragment {
                 tv.setText(twoDatas[position]);
             }
 
+            int red = random.nextInt(211); //0-255 颜色值  0-211随机出来的值
+            int green = random.nextInt(211); //0-255 颜色值
+            int blue = random.nextInt(211); //0-255 颜色值
+
+            tv.setTextColor(Color.rgb(red,green,blue));
             return tv;
         }
 
