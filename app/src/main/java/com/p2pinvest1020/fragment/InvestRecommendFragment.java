@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.p2pinvest1020.R;
 import com.p2pinvest1020.ui.randomLayout.StellarMap;
@@ -56,6 +57,7 @@ public class InvestRecommendFragment extends BaseFragment {
         investRecSm.setGroup(0,true);
         investRecSm.setInnerPadding(UiUtils.dp2px(10),UiUtils.dp2px(10),
                 UiUtils.dp2px(10),UiUtils.dp2px(10));
+
     }
 
     @Override
@@ -95,7 +97,7 @@ public class InvestRecommendFragment extends BaseFragment {
         @Override
         public View getView(int group, int position, View convertView) {
 
-            TextView tv = new TextView(getActivity());
+            final TextView tv = new TextView(getActivity());
             if (group == 0){
                 tv.setText(oneDatas[position]);
             }else{
@@ -107,6 +109,12 @@ public class InvestRecommendFragment extends BaseFragment {
             int blue = random.nextInt(211); //0-255 颜色值
 
             tv.setTextColor(Color.rgb(red,green,blue));
+            tv.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(getActivity(), tv.getText().toString(), Toast.LENGTH_SHORT).show();
+                }
+            });
             return tv;
         }
 
