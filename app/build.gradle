@@ -33,4 +33,5 @@ dependencies {
     compile files('libs/picasso-2.5.2.jar')
     compile 'com.youth.banner:banner:1.4.2'
     compile 'com.zhy:flowlayout-lib:1.0.3'
+    compile 'jp.wasabeef:picasso-transformations:2.1.0'
 }
