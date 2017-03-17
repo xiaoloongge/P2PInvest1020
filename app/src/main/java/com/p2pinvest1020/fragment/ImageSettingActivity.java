@@ -24,6 +24,7 @@ import android.widget.Toast;
 
 import com.p2pinvest1020.R;
 import com.p2pinvest1020.activity.BaseActivity;
+import com.p2pinvest1020.activity.LoginActivity;
 import com.p2pinvest1020.utils.BitmapUtils;
 
 import java.io.File;
@@ -62,9 +63,26 @@ public class ImageSettingActivity extends BaseActivity {
                 chagerUserIcon();
             }
         });
+
+        btnUserLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                /**
+                 将SP清除
+                 将File删除
+                 销毁所有的Activity
+                 重新进入主界面*/
+                clearFile();
+                clearSp();
+                removeAllActivity();
+                startActivity(new Intent(ImageSettingActivity.this, LoginActivity.class));
+
+            }
+        });
     }
 
-    private String changeName[] = {"相机","相册"};
+    private String changeName[] = {"相机", "相册"};
+
     private void chagerUserIcon() {
 
         new AlertDialog.Builder(this)
@@ -73,11 +91,11 @@ public class ImageSettingActivity extends BaseActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         //第二个参数是数组下标
-                        if (which == 0){
+                        if (which == 0) {
                             //打开系统拍照程序，选择拍照图片
                             Intent camera = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                             startActivityForResult(camera, 0);
-                        }else{
+                        } else {
                             //相册
                             //打开系统图库程序，选择图片
                             Intent picture = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
@@ -95,7 +113,7 @@ public class ImageSettingActivity extends BaseActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == 0 && resultCode == RESULT_OK && data != null ){
+        if (requestCode == 0 && resultCode == RESULT_OK && data != null) {
             //相机
             //拍照
             Bundle bundle = data.getExtras();
@@ -108,7 +126,7 @@ public class ImageSettingActivity extends BaseActivity {
             //保存图片
             saveImage(bitmap);
             //uploadImage(bitmap);  //压缩
-        }else if (data != null){
+        } else if (data != null) {
             //图库 解析图库的操作，跟android系统有很大相关性。不同的系统使用uri的authority有很大不同。
             Uri selectedImage = data.getData();
             //android各个不同的系统版本,对于获取外部存储上的资源，返回的Uri对象都可能各不一样,
@@ -132,25 +150,25 @@ public class ImageSettingActivity extends BaseActivity {
     private void saveImage(Bitmap bitmap) {
         try {
             //判断是否挂载了sd卡
-            if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)){
+            if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
                 //外部存储路径
                 filesDir = getExternalFilesDir("");
-            }else{
+            } else {
                 filesDir = getFilesDir(); //内部存储路径
             }
             //全路径
-            File path = new File(filesDir,"123.png");
+            File path = new File(filesDir, "123.png");
             //输出流
             os = new FileOutputStream(path);
             //第一个参数是图片的格式，第二个参数是图片的质量数值大的大质量高，第三个是输出流
-            bitmap.compress(Bitmap.CompressFormat.PNG,100, os);
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, os);
             //保存当前是否有更新
             saveImage(true);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             try {
-                if (os != null){
+                if (os != null) {
                     os.close();
                 }
             } catch (IOException e) {
@@ -182,7 +200,6 @@ public class ImageSettingActivity extends BaseActivity {
     public int getLayoutid() {
         return R.layout.activity_image_setting;
     }
-
 
 
     /**

@@ -2,6 +2,7 @@ package com.p2pinvest1020.activity;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
@@ -9,6 +10,9 @@ import android.widget.Toast;
 import com.p2pinvest1020.bean.DataBean;
 import com.p2pinvest1020.bean.InvestAllBean;
 import com.p2pinvest1020.bean.UserInfo;
+import com.p2pinvest1020.utils.AppManager;
+
+import java.io.File;
 
 import butterknife.ButterKnife;
 
@@ -84,5 +88,36 @@ public abstract class BaseActivity extends AppCompatActivity {
     public Boolean isUpdate(){
         SharedPreferences sp = getSharedPreferences("image", MODE_PRIVATE);
         return sp.getBoolean("update",false);
+    }
+
+    //清除所有的sp操作
+    public void clearSp(){
+        SharedPreferences user = getSharedPreferences("user_info", MODE_PRIVATE);
+        SharedPreferences image = getSharedPreferences("image", MODE_PRIVATE);
+        user.edit().clear().commit(); //清除的是内容
+        image.edit().clear().commit();
+    }
+
+    //删除file
+    public void clearFile(){
+        File fileSDir = null;
+        //判断是否挂载了sd卡
+        if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
+            //外部存储路径
+            fileSDir = getExternalFilesDir("");
+        } else {
+            fileSDir = getFilesDir(); //内部存储路径
+        }
+        //全路径
+        File path = new File(fileSDir, "123.png");
+
+        if (path.exists()){
+            path.delete();//删除目录中的内容
+        }
+    }
+
+    //清除所有的activity
+    public void removeAllActivity(){
+        AppManager.getInstance().removeAll();
     }
 }
