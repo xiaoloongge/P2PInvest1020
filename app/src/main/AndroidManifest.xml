@@ -52,7 +52,18 @@
         <activity android:name=".fragment.LineChartActivity" />
         <activity android:name=".fragment.ColumnActivity" />
         <activity android:name=".fragment.PieActivity" />
-        <activity android:name=".fragment.ReChargeActivity"></activity>
+        <activity android:name=".fragment.ReChargeActivity" />
+        <activity
+            android:name="com.alipay.sdk.app.H5PayActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind"></activity>
+        <activity
+            android:name="com.alipay.sdk.auth.AuthActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind"></activity>
+        <activity android:name=".fragment.WithDrawActivity"></activity>
     </application>
 
 </manifest>

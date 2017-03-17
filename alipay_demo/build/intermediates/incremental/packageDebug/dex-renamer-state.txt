@@ -1,0 +1,7 @@
+#Fri Mar 17 15:21:34 CST 2017
+base.0=C\:\\Users\\Administrator\\Desktop\\P2PInvest\\P2PInvest1020\\alipay_demo\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_4a564669814909cb423044a9c3ad3c90478b00b5
+renamed.1=classes.dex
+renamed.0=classes2.dex
+file.1=C\:\\Users\\Administrator\\Desktop\\P2PInvest\\P2PInvest1020\\alipay_demo\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_7a886636771e7d28630f6a778cadb52ebe6d0f69\\classes.dex
+base.1=C\:\\Users\\Administrator\\Desktop\\P2PInvest\\P2PInvest1020\\alipay_demo\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_7a886636771e7d28630f6a778cadb52ebe6d0f69
+file.0=C\:\\Users\\Administrator\\Desktop\\P2PInvest\\P2PInvest1020\\alipay_demo\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_4a564669814909cb423044a9c3ad3c90478b00b5\\classes.dex

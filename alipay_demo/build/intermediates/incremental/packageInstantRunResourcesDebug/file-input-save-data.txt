@@ -1,0 +1,24 @@
+#Internal package file, do not edit.
+#Fri Mar 17 15:21:32 CST 2017
+2.base=C\:\\Users\\Administrator\\Desktop\\P2PInvest\\P2PInvest1020\\alipay_demo\\build\\intermediates\\res\\resources-debug.ap_
+5.file=C\:\\Users\\Administrator\\Desktop\\P2PInvest\\P2PInvest1020\\alipay_demo\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-hdpi-v4\\msp_demo_title_bg.png
+5.set=ANDROID_RESOURCE
+3.base=C\:\\Users\\Administrator\\Desktop\\P2PInvest\\P2PInvest1020\\alipay_demo\\build\\intermediates\\res\\resources-debug.ap_
+6.file=C\:\\Users\\Administrator\\Desktop\\P2PInvest\\P2PInvest1020\\alipay_demo\\build\\intermediates\\res\\resources-debug.ap_\\res\\layout\\pay_main.xml
+2.set=ANDROID_RESOURCE
+4.base=C\:\\Users\\Administrator\\Desktop\\P2PInvest\\P2PInvest1020\\alipay_demo\\build\\intermediates\\res\\resources-debug.ap_
+count=7
+0.file=C\:\\Users\\Administrator\\Desktop\\P2PInvest\\P2PInvest1020\\alipay_demo\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-hdpi-v4\\msp_icon.png
+5.base=C\:\\Users\\Administrator\\Desktop\\P2PInvest\\P2PInvest1020\\alipay_demo\\build\\intermediates\\res\\resources-debug.ap_
+4.set=ANDROID_RESOURCE
+6.base=C\:\\Users\\Administrator\\Desktop\\P2PInvest\\P2PInvest1020\\alipay_demo\\build\\intermediates\\res\\resources-debug.ap_
+1.file=C\:\\Users\\Administrator\\Desktop\\P2PInvest\\P2PInvest1020\\alipay_demo\\build\\intermediates\\res\\resources-debug.ap_\\res\\layout\\pay_external.xml
+1.set=ANDROID_RESOURCE
+2.file=C\:\\Users\\Administrator\\Desktop\\P2PInvest\\P2PInvest1020\\alipay_demo\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-hdpi-v4\\msp_demo_title.png
+6.set=ANDROID_RESOURCE
+0.base=C\:\\Users\\Administrator\\Desktop\\P2PInvest\\P2PInvest1020\\alipay_demo\\build\\intermediates\\res\\resources-debug.ap_
+3.file=C\:\\Users\\Administrator\\Desktop\\P2PInvest\\P2PInvest1020\\alipay_demo\\build\\intermediates\\res\\resources-debug.ap_\\AndroidManifest.xml
+3.set=ANDROID_RESOURCE
+1.base=C\:\\Users\\Administrator\\Desktop\\P2PInvest\\P2PInvest1020\\alipay_demo\\build\\intermediates\\res\\resources-debug.ap_
+4.file=C\:\\Users\\Administrator\\Desktop\\P2PInvest\\P2PInvest1020\\alipay_demo\\build\\intermediates\\res\\resources-debug.ap_\\resources.arsc
+0.set=ANDROID_RESOURCE

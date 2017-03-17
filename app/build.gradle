@@ -35,4 +35,7 @@ dependencies {
     compile 'com.zhy:flowlayout-lib:1.0.3'
     compile 'jp.wasabeef:picasso-transformations:2.1.0'
     compile project(':MPChartLib')
+    compile files('libs/alipaysdk.jar')
+    compile files('libs/alipaysecsdk.jar')
+    compile files('libs/alipayutdid.jar')
 }

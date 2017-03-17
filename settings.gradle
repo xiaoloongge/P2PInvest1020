@@ -1,1 +1,2 @@
 include ':app', ':encryption', ':MPChartLib', ':MPChartExample'
+include ':alipay_demo'

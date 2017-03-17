@@ -88,6 +88,13 @@ public class PropertyFragment extends BaseFragment {
                 startActivity(new Intent(getActivity(),ReChargeActivity.class));
             }
         });
+
+        withdraw.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(),WithDrawActivity.class));
+            }
+        });
     }
 
     @Override
