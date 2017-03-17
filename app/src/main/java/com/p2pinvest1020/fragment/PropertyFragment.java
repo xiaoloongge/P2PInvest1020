@@ -61,6 +61,7 @@ public class PropertyFragment extends BaseFragment {
             @Override
             public void onClick(View v) {
 
+                startActivity(new Intent(getActivity(),PieActivity.class));
             }
         });
 
@@ -68,6 +69,7 @@ public class PropertyFragment extends BaseFragment {
             @Override
             public void onClick(View v) {
 
+                startActivity(new Intent(getActivity(),ColumnActivity.class));
             }
         });
 

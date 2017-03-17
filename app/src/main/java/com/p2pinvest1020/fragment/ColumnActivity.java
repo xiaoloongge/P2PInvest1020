@@ -8,8 +8,12 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
+import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
@@ -22,7 +26,7 @@ import java.util.ArrayList;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class LineChartActivity extends BaseActivity {
+public class ColumnActivity extends BaseActivity {
 
 
     @Bind(R.id.base_title)
@@ -32,9 +36,9 @@ public class LineChartActivity extends BaseActivity {
     @Bind(R.id.base_setting)
     ImageView baseSetting;
     @Bind(R.id.chart)
-    com.github.mikephil.charting.charts.LineChart chart;
-    @Bind(R.id.activity_line_chart)
-    RelativeLayout activityLineChart;
+    BarChart chart;
+    @Bind(R.id.activity_column)
+    RelativeLayout activityColumn;
 
     @Override
     protected void initListener() {
@@ -43,44 +47,37 @@ public class LineChartActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-
-        //字体
         Typeface mTf = Typeface.createFromAsset(getAssets(), "OpenSans-Regular.ttf");
-
-        //设置表格的表题
-        chart.setDescription("马蓉出轨宝强心里阴影");
-        //背景颜色是否显示
+        // apply styling
+        chart.setDescription("");
         chart.setDrawGridBackground(false);
+        chart.setDrawBarShadow(false);
 
-        //x轴
         XAxis xAxis = chart.getXAxis();
-        //X轴的位置
-        xAxis.setPosition(XAxis.XAxisPosition.TOP);
+        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
         xAxis.setTypeface(mTf);
-        //设置背景表格显示
-        xAxis.setDrawGridLines(true);
-        //文字下面的线是否显示
+        xAxis.setDrawGridLines(false);
         xAxis.setDrawAxisLine(true);
 
-        //xAxis.setLabelsToSkip(1);
-        //左边的轴
         YAxis leftAxis = chart.getAxisLeft();
         leftAxis.setTypeface(mTf);
-        //第一个参数表示区间的数据，表示区间的数值是否变化
         leftAxis.setLabelCount(5, false);
+        leftAxis.setSpaceTop(20f);
 
-        //右边的轴
         YAxis rightAxis = chart.getAxisRight();
         rightAxis.setTypeface(mTf);
-        rightAxis.setLabelCount(10, false);
-        rightAxis.setDrawGridLines(false);
+        rightAxis.setLabelCount(5, false);
+        rightAxis.setSpaceTop(20f);
 
-        // set data 设置数据
-        chart.setData((LineData) generateDataLine(100));
+        BarData barData = generateDataBar(1);
+        barData.setValueTypeface(mTf);
+
+        // set data
+        chart.setData(barData);
 
         // do not forget to refresh the chart
-        //chart.invalidate();
-        chart.animateX(750);
+//        chart.invalidate();
+        chart.animateY(700);
     }
 
     @Override
@@ -94,12 +91,12 @@ public class LineChartActivity extends BaseActivity {
         });
 
         baseSetting.setVisibility(View.GONE);
-        baseTitle.setText("折性图");
+        baseTitle.setText("柱状图");
     }
 
     @Override
     public int getLayoutid() {
-        return R.layout.activity_line_chart;
+        return R.layout.activity_column;
     }
 
     /**
@@ -107,46 +104,23 @@ public class LineChartActivity extends BaseActivity {
      *
      * @return
      */
-    private LineData generateDataLine(int cnt) {
+    private BarData generateDataBar(int cnt) {
 
-        ArrayList<Entry> e1 = new ArrayList<Entry>();
-
-        for (int i = 0; i < 12; i++) {
-            //entry 第一个参数是数据值 第二个参数是第几个点
-            e1.add(new Entry((int) (Math.random() * 65) + 40, i));
-        }
-        //每一条线的说明
-        LineDataSet d1 = new LineDataSet(e1, "New DataSet " + cnt + ", (1)");
-        //连线的宽度
-        d1.setLineWidth(2.5f);
-        //每个坐标点的大小
-        d1.setCircleSize(4.5f);
-        //点击坐标时显示的坐标线的颜色
-        d1.setHighLightColor(Color.rgb(240, 0, 0));
-        //每个点的值是否显示
-        d1.setDrawValues(false);
-
-        /*ArrayList<Entry> e2 = new ArrayList<Entry>();
+        ArrayList<BarEntry> entries = new ArrayList<BarEntry>();
 
         for (int i = 0; i < 12; i++) {
-            e2.add(new Entry(e1.get(i).getVal() - 30, i));
+            entries.add(new BarEntry((int) (Math.random() * 70) + 30, i));
         }
 
-        LineDataSet d2 = new LineDataSet(e2, "New DataSet " + cnt + ", (2)");
-        d2.setLineWidth(2.5f);
-        d2.setCircleSize(4.5f);
-        d2.setHighLightColor(Color.rgb(244, 117, 117));
-        d2.setColor(ColorTemplate.VORDIPLOM_COLORS[0]);
-        d2.setCircleColor(ColorTemplate.VORDIPLOM_COLORS[0]);
-        d2.setDrawValues(false);
-*/
-        ArrayList<LineDataSet> sets = new ArrayList<LineDataSet>();
-        sets.add(d1);
-        //sets.add(d2);
+        BarDataSet d = new BarDataSet(entries, "New DataSet " + cnt);
+        d.setBarSpacePercent(20f);
+        d.setColors(ColorTemplate.VORDIPLOM_COLORS);
+        d.setHighLightAlpha(255);
 
-        LineData cd = new LineData(getMonths(), sets);
+        BarData cd = new BarData(getMonths(), d);
         return cd;
     }
+
 
     private ArrayList<String> getMonths() {
 
@@ -166,5 +140,5 @@ public class LineChartActivity extends BaseActivity {
 
         return m;
     }
-
+    
 }
