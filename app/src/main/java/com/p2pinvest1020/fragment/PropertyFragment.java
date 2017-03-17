@@ -95,6 +95,13 @@ public class PropertyFragment extends BaseFragment {
                 startActivity(new Intent(getActivity(),WithDrawActivity.class));
             }
         });
+        //设置监听
+        tvSettings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(),ImageSettingActivity.class));
+            }
+        });
     }
 
     @Override
