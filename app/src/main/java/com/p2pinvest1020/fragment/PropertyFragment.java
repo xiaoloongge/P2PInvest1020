@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,8 +19,15 @@ import com.p2pinvest1020.activity.MainActivity;
 import com.p2pinvest1020.bean.UserInfo;
 import com.p2pinvest1020.command.AppNetConfig;
 import com.p2pinvest1020.utils.BitmapUtils;
+import com.p2pinvest1020.utils.UiUtils;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Transformation;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -139,6 +147,48 @@ public class PropertyFragment extends BaseFragment {
                 //第二个参数值越大越模糊
                 .transform(new BlurTransformation(getActivity(),80))
                 .into(ivMeIcon);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        MainActivity activity = (MainActivity) getActivity();
+        Boolean update = activity.isUpdate();
+        if (update){
+            File filesDir = null;
+            FileInputStream is = null;
+            try {
+                //判断是否挂载了sd卡
+                if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)){
+                    //外部存储路径
+                    filesDir = getActivity().getExternalFilesDir("");
+                }else{
+                    filesDir = getActivity().getFilesDir(); //内部存储路径
+                }
+                //全路径
+                File path = new File(filesDir,"123.png");
+
+                if (path.exists()){
+                    //输出流
+                    is = new FileInputStream(path);
+                    //第一个参数是图片的格式，第二个参数是图片的质量数值大的大质量高，第三个是输出流
+                    Bitmap bitmap = BitmapFactory.decodeStream(is);
+                    Bitmap circleBitmap = BitmapUtils.circleBitmap(bitmap);
+                    ivMeIcon.setImageBitmap(circleBitmap);
+                    activity.saveImage(false);
+                }
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }finally {
+                try {
+                    if (is != null){
+                        is.close();
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 
     @Override
