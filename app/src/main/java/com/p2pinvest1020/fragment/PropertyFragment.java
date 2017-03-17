@@ -79,6 +79,15 @@ public class PropertyFragment extends BaseFragment {
                 startActivity(new Intent(getActivity(),LineChartActivity.class));
             }
         });
+
+
+        //充值的监听
+        recharge.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(),ReChargeActivity.class));
+            }
+        });
     }
 
     @Override

@@ -51,7 +51,8 @@
         <activity android:name=".activity.RegesterActivity" />
         <activity android:name=".fragment.LineChartActivity" />
         <activity android:name=".fragment.ColumnActivity" />
-        <activity android:name=".fragment.PieActivity"></activity>
+        <activity android:name=".fragment.PieActivity" />
+        <activity android:name=".fragment.ReChargeActivity"></activity>
     </application>
 
 </manifest>
