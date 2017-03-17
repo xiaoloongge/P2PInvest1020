@@ -1,5 +1,6 @@
 package com.p2pinvest1020.fragment;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -56,11 +57,31 @@ public class PropertyFragment extends BaseFragment {
     @Override
     protected void initListener() {
 
+        llZichan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        llTouziZhiguan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        llTouzi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(),LineChartActivity.class));
+            }
+        });
     }
 
     @Override
     protected void initData(String json) {
-
+        initListener();
         MainActivity activity = (MainActivity) getActivity();
         UserInfo user = activity.getUser();
         //设置用户名
