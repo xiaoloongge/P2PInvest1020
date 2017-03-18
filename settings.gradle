@@ -1,2 +1,2 @@
-include ':app', ':encryption', ':MPChartLib', ':MPChartExample'
+include ':app', ':encryption', ':MPChartLib', ':MPChartExample', ':GestureLock'
 include ':alipay_demo'

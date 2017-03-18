@@ -38,4 +38,5 @@ dependencies {
     compile files('libs/alipaysdk.jar')
     compile files('libs/alipaysecsdk.jar')
     compile files('libs/alipayutdid.jar')
+    compile project(':GestureLock')
 }
