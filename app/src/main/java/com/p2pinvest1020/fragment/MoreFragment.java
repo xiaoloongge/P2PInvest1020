@@ -162,7 +162,6 @@ public class MoreFragment extends BaseFragment {
         setTogState();//设置选择状态
         /*//设置手势密码
         startActivity(new Intent(getActivity(), GestureEditActivity.class));*/
-
     }
 
     //设置button状态
@@ -188,5 +187,4 @@ public class MoreFragment extends BaseFragment {
     public String getChildUrl() {
         return null;
     }
-
 }
