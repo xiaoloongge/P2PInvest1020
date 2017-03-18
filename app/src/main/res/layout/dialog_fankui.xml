@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/commom_top"
+        android:gravity="center"
+        android:text="用户反馈"
+        android:textColor="@color/more_text"
+        android:textSize="25sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="发送:"
+            android:textColor="@color/more_text"
+            android:textSize="20sp" />
+
+
+        <RadioGroup
+            android:id="@+id/rg_fankui"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/cb_fankui_tech"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="技术部"
+                android:textColor="@color/round_red_common"
+                android:textSize="15sp" />
+
+            <RadioButton
+                android:id="@+id/cb_fankui_invest"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="理财部"
+                android:textColor="@color/round_red_common"
+                android:textSize="15sp" />
+
+            <RadioButton
+                android:id="@+id/cb_fankui_zixun"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="咨询部"
+                android:textColor="@color/round_red_common"
+                android:textSize="15sp" />
+        </RadioGroup>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="信 息:"
+            android:textColor="@color/more_text"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/et_fankui_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:hint="反馈您遇到的任何问题给客服人员"
+            android:textColor="@color/more_text"
+            android:textSize="20sp" />
+    </LinearLayout>
+</LinearLayout>

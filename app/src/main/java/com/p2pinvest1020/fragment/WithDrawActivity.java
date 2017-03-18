@@ -1,5 +1,8 @@
 package com.p2pinvest1020.fragment;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
@@ -14,6 +17,8 @@ import android.widget.Toast;
 
 import com.p2pinvest1020.R;
 import com.p2pinvest1020.activity.BaseActivity;
+import com.p2pinvest1020.activity.GestureEditActivity;
+import com.p2pinvest1020.activity.GestureVerifyActivity;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -80,7 +85,15 @@ public class WithDrawActivity extends BaseActivity {
         btnTixian.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(WithDrawActivity.this, "提现申请成功", Toast.LENGTH_SHORT).show();
+                SharedPreferences sp = getSharedPreferences("tog_state", Context.MODE_PRIVATE);
+                boolean isOpen = sp.getBoolean("isOpen", false);
+                //验证手势密码
+                if (isOpen){
+                    startActivity(new Intent(WithDrawActivity.this,
+                            GestureVerifyActivity.class));
+                }else{
+                    Toast.makeText(WithDrawActivity.this, "提现成功", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
